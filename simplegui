@@ -1,0 +1,116 @@
+-- Define the library
+local SimpleGUI = {}
+
+-- Define the window object
+function SimpleGUI:Window(options)
+   local window = {}
+   window.Title = options.Title or "SimpleGUI - Window"
+   window.Accent = options.Accent or Color3.fromRGB(255, 255, 255)
+   window.Logo = options.Logo or 0
+   window.ToggleKey = options.ToggleKey or Enum.KeyCode.None
+   
+   -- Define the method for creating a new tab
+   function window:NewTab(options)
+      local tab = {}
+      tab.Logo = options.Logo or 0
+      
+      -- Define the method for creating a new tab section
+      function tab:TabSection(options)
+         local tabsection = {}
+         tabsection.Title = options.Title or "SimpleGUI - Tab Section"
+         
+         -- Define the method for adding a new column
+         function tabsection:AddColumn(options)
+            local column = {}
+            column.Title = options.Title or "SimpleGUI - Column"
+            
+            -- Define the method for adding a new section
+            function column:Section(options)
+               local section = {}
+               section.Title = options.Title or "SimpleGUI - Section"
+               
+               -- Define the method for adding a button
+               function section:Button(options)
+                  local button = {}
+                  button.Text = options.Text or "SimpleGUI - Button"
+                  button.Callback = options.Callback or function() end
+                  
+                  -- Add code for creating the actual button GUI element here
+               end
+               
+               -- Define the method for adding a toggle
+               function section:Toggle(options)
+                  local toggle = {}
+                  toggle.Text = options.Text or "SimpleGUI - Toggle"
+                  toggle.State = options.State or false
+                  toggle.Callback = options.Callback or function() end
+                  
+                  -- Add code for creating the actual toggle GUI element here
+               end
+               
+               -- Define the method for adding a text label
+               function section:TextLabel(options)
+                  local textlabel = {}
+                  textlabel.Text = options.Text or "SimpleGUI - Text Label"
+                  
+                  -- Add code for creating the actual text label GUI element here
+               end
+               
+               -- Define the method for adding a divider
+               function section:Divide(options)
+                  -- Add code for creating the actual divider GUI element here
+               end
+               
+               -- Define the method for adding a keybind
+               function section:Keybind(options)
+                  local keybind = {}
+                  keybind.Text = options.Text or "SimpleGUI - Keybind"
+                  keybind.Key = options.Key or Enum.KeyCode.None
+                  keybind.Callback = options.Callback or function() end
+                  
+                  -- Add code for creating the actual keybind GUI element here
+               end
+               
+               -- Define the method for adding a textbox
+               function section:Textbox(options)
+                  local textbox = {}
+                  textbox.Text = options.Text or "SimpleGUI - Textbox"
+                  textbox.Callback = options.Callback or function() end
+                  
+                  -- Add code for creating the actual textbox GUI element here
+               end
+
+               -- Define the method for adding a dropdown
+               function section:Dropdown(options)
+                   local dropdown = {}
+                   dropdown.Text = options.Text or "SimpleGUI - Dropdown"
+                   dropdown.List = options.List or {}
+                   dropdown.Callback = options.Callback or function() end
+
+                  -- Add code for creating the actual dropdown GUI element here
+               end
+           
+               -- Define the method for adding a slider
+               function section:Slider(options)
+                   local slider = {}
+                   slider.Text = options.Text or "SimpleGUI - Slider"
+                   slider.Min = options.Min or 0
+                   slider.Max = options.Max or 100
+                   slider.Def = options.Def or 50
+                   slider.Callback = options.Callback or function() end
+              
+               -- Add code for creating the actual slider GUI element here
+               end
+           
+           return section
+        end
+        
+        return column
+     end
+     
+     return tabsection
+  end
+  
+  return tab
+
+
